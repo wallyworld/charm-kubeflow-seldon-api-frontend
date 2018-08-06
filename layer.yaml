@@ -1,0 +1,6 @@
+repo: https://github.com/juju-solutions/charm-kubeflow-seldon-api-frontend.git
+includes:
+  - "layer:caas-base"
+  - "layer:status"
+  - "layer:docker-resource"
+  - "interface:redis"

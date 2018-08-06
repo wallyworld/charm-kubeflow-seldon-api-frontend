@@ -1,0 +1,33 @@
+name: kubeflow-seldon-api-frontend
+summary: |
+  Seldon Core is an open source platform for deploying machine
+  learning models on Kubernetes.
+maintainers:
+  - "Adam Stokes <adam.stokes@canonical.com>"
+  - "Cory Johns <cory.johns@canonical.com>"
+  - "George Kraft <george.kraft@canonical.com>"
+  - "Kevin Monroe <kevin.monroe@canonical.com>"
+  - "Konstantinos Tsakalozos <kos.tsakalozos@canonical.com>"
+  - "Mike Wilson <mike.wilson@canonical.com>"
+  - "Tim Van Steenburgh <tim.van.steenburgh@canonical.com>"
+description: |
+  Seldon Core is an open source platform for deploying machine
+  learning models on Kubernetes.
+
+  This charm deploys the API Frontend component of Seldon,
+  configured for use with Kubeflow to Kubernetes models in Juju.
+tags:
+  - machine-learning
+  - ai
+  - bigdata
+  - kubeflow
+series:
+  - kubernetes
+resources:
+  api-frontend-image:
+    type: docker
+    description: 'Image for Seldon API Frontend'
+    auto-fetch: true
+requires:
+  redis:
+    interface: redis
