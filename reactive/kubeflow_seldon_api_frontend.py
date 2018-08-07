@@ -1,10 +1,15 @@
 import os
 
 from charmhelpers.core import hookenv
-from charms.reactive import set_flag, endpoint_from_flag
+from charms.reactive import set_flag, clear_flag, endpoint_from_flag
 from charms.reactive import when, when_not
 
 from charms import layer
+
+
+@when('layer.docker-resource.api-frontend-image.changed')
+def update_image():
+    clear_flag('charm.kubeflow-seldon-api-frontend.started')
 
 
 @when_not('endpoint.redis.available')
@@ -14,6 +19,7 @@ def blocked():
         layer.status.waiting('waiting for redis')
     else:
         layer.status.blocked('missing relation to redis')
+    clear_flag('charm.kubeflow-seldon-api-frontend.started')
 
 
 @when('layer.docker-resource.api-frontend-image.available')
