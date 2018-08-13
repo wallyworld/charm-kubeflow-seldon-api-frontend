@@ -1,0 +1,6 @@
+options:
+  dummy:
+    type: string
+    default: ''
+    description: |
+      Not used
